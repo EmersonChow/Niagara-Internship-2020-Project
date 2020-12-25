@@ -1,0 +1,26 @@
+SELECT
+C.ComputerId,		/*Nothing useful right now */
+C.Name,			/*ChangeGear: Name */
+C.OSName, 		/*ChangeGear: Type */
+C.SystemFamily, 		/*ChangeGear: Model 
+			Will need to remove brand name before model to perfectly match. 
+			Use C.SystemVersion if you want None values; if you don't prefer empty field. 
+			Suggestion: Keep everything there, don't waste time trying to filter to exact model numbers
+			because inputs are not perfectly formated - ex. there is a System Version labeled "01" with SystemFamily as empty field. */
+C.SerialNumber,		/*ChangeGear: Serial # */
+C.AdDisplayName	,	/*ChangeGear: Owner */
+			
+			/*ChangeGear: Department no corresponding field 
+			Will be found through ChangeGear = no input necessary here*/
+			
+			/*ChangeGear: Location no corresponding field - ADlocation looks like it might be but all empty
+			Will be found through ChangeGear = no input necessary here */
+			
+			/*ChangeGear: Status no corresponding field */
+
+C.BiosAssetTag,		/*ChangeGear: AssetTag  */
+C.Model
+FROM
+Computers as C
+WHERE
+C.OS = "7" OR C.OS = "8" OR C.OS = "10" OR  C.OS = "XP" OR C.OS = "Vista" OR C.OSName = "Windows Vista" OR C.OSName = "Mac OS X" 		
